@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="contenedor-principal">
+
+  <div class="lado-izquierdo">
+    <h2 class="titulo-seccion">Datos Personales</h2>
+
+    <form class="formulario-datos">
+      
+        <div class="campo-formulario">
+        <label>Nombre</label>
+        <input type="text" [(ngModel)]="nombre" name="nombre" placeholder="Nombre">
+      </div>
+
+      <div class="campo-formulario">
+        <label>Apaterno</label>
+        <input type="text" [(ngModel)]="apaterno" name="apaterno" placeholder="Apellido paterno">
+      </div>
+
+      <div class="campo-formulario">
+        <label>Amaterno</label>
+        <input type="text" [(ngModel)]="amaterno" name="amaterno" placeholder="Apellido materno">
+      </div>
+
+      <div class="campo-formulario">
+        <label>Fecha de nacimiento</label>
+        <div class="grupo-fecha">
+          <input type="text" [(ngModel)]="dia" name="dia" placeholder="Dia">
+          <input type="text" [(ngModel)]="mes" name="mes" placeholder="Mes">
+          <input type="text" [(ngModel)]="anio" name="anio" placeholder="Año">
+        </div>
+      </div>
+
+      <div class="campo-formulario">
+        <label>Sexo</label>
+        <div class="grupo-sexo">
+          <label class="opcion-radio">
+            <input type="radio" [(ngModel)]="sexo" name="sexo" value="Masculino"> Masculino
+          </label>
+          <label class="opcion-radio">
+            <input type="radio" [(ngModel)]="sexo" name="sexo" value="Femenino"> Femenino
+          </label>
+        </div>
+      </div>
+
+      <button type="button" (click)="imprimir()" class="boton-imprimir">
+        Ver tus datos
+      </button>
+
+    </form>
+  </div>
+
+  <div class="lado-derecho">
+    <div *ngIf="mostrarsigno" class="resultado-datos">
+      <h2>Hola <strong>{{ nombrecompleto }}</strong></h2>
+      <p>Tienes <strong>{{ edad }}</strong> años</p>
+      <p>Tu signo zodiacal es <strong>{{ signo }}</strong></p>
+      <img [src]="imagenes" class="imagen-zodiaco">
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

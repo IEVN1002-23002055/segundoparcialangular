@@ -1,0 +1,91 @@
+.contenedor-principal {
+  display: flex;
+  max-width: 900px;
+  margin: 30px auto;
+  font-family: Arial, sans-serif;
+  gap: 40px;
+  align-items: center;
+}
+
+.lado-izquierdo {
+  flex: 1;
+  border-right: 2px solid #ccc;
+  padding-right: 40px;
+}
+
+.lado-derecho {
+  flex: 1;
+  text-align: center;
+}
+
+.titulo-seccion {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.campo-formulario {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.campo-formulario label {
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.campo-formulario input[type="text"] {
+  padding: 8px 10px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.grupo-fecha {
+  display: flex;
+  gap: 10px;
+}
+
+.grupo-fecha input {
+  width: 100%;
+}
+
+.grupo-sexo {
+  display: flex;
+  gap: 20px;
+  margin-top: 5px;
+}
+
+.opcion-radio {
+  font-weight: normal;
+  cursor: pointer;
+}
+
+.boton-imprimir {
+  width: 100%;
+  padding: 10px;
+  background-color: #ffffff;
+  border: 2px solid #333333;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.boton-imprimir:hover {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+.resultado-datos p {
+  font-size: 1.1rem;
+  margin: 10px 0;
+}
+
+.imagen-zodiaco {
+  max-width: 180px;
+  height: auto;
+  margin-top: 15px;
+}
