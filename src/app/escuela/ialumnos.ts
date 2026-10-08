@@ -4,3 +4,4 @@ export interface IAlumno {
     correo: string;
     materia: string;
 }
+ 
