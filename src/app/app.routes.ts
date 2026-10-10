@@ -4,9 +4,8 @@ export const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: '',
+    redirectTo: 'escuela/alumnos',
   },
-
 
   {
     path: 'escuela',
@@ -16,9 +15,14 @@ export const routes: Routes = [
         loadComponent: () =>
           import('./escuela/lista-alumnos/lista-alumnos').then((c) => c.ListaAlumnos),
       },
+
+      {
+        path: 'cinepolis',
+        loadComponent: () =>
+          import('./escuela/cinepolis/cinepolis').then((c) => c.Cinepolis),
+      },
     ],
   },
-
 
   {
     path: 'formulario',
@@ -38,6 +42,6 @@ export const routes: Routes = [
   
   {
     path: '**',
-    redirectTo: '',
+    redirectTo: 'escuela/alumnos',
   },
 ];
