@@ -18,7 +18,7 @@ export class Cinepolis implements OnInit {
   compradores: number = 0;
   boletos: number = 0;
   valorPagar: number = 0;
-
+ 
 
   ngOnInit(): void {
     this.formulario = new FormGroup({
