@@ -7,22 +7,25 @@ export const routes: Routes = [
     redirectTo: 'escuela/alumnos',
   },
 
-  {
-    path: 'escuela',
-    children: [
-      {
-        path: 'alumnos',
-        loadComponent: () =>
-          import('./escuela/lista-alumnos/lista-alumnos').then((c) => c.ListaAlumnos),
-      },
+  
+{
+  path: 'escuela',
+  children: [
+    {
+      path: 'alumnos',
+      loadComponent: () => import('./escuela/lista-alumnos/lista-alumnos').then((c) => c.ListaAlumnos),
+    },
+    {
+      path: 'cinepolis',
+      loadComponent: () => import('./escuela/cinepolis/cinepolis').then((c) => c.Cinepolis),
+    },
+    {
+      path: 'verregistros',
+      loadComponent: () => import('./escuela/verregistros/verregistros').then((c) => c.Verregistros),
+    },
+  ],
+},
 
-      {
-        path: 'cinepolis',
-        loadComponent: () =>
-          import('./escuela/cinepolis/cinepolis').then((c) => c.Cinepolis),
-      },
-    ],
-  },
 
   {
     path: 'formulario',

@@ -1,0 +1,120 @@
+<div class="max-w-6xl mx-auto p-6 bg-white rounded-lg shadow mt-6">
+
+  <div class="flex justify-between items-center mb-6">
+    <h1 class="text-3xl font-bold text-gray-900">Registros de Ventas Cinépolis</h1>
+    <a 
+      [routerLink]="['/escuela/cinepolis']" 
+      class="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2.5"
+    >
+      Salir
+    </a>
+  </div>
+
+  <div *ngIf="indiceEdicion !== -1" class="mb-8 p-4 border border-blue-200 bg-blue-50 rounded-lg">
+    <h2 class="text-xl font-semibold mb-4 text-gray-800">Editar Registro #{{ indiceEdicion + 1 }}</h2>
+    <form [formGroup]="formulario" (ngSubmit)="guardarEdicion()">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+        <div>
+          <label class="block mb-1 text-sm font-medium text-gray-900">Nombre</label>
+          <input type="text" formControlName="nombre" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5" />
+        </div>
+        <div>
+          <label class="block mb-1 text-sm font-medium text-gray-900">Compradores</label>
+          <input type="number" formControlName="compradores" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5" />
+        </div>
+        <div>
+          <label class="block mb-1 text-sm font-medium text-gray-900">Tarjeta Cine</label>
+          <select formControlName="tarjetaCine" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5">
+            <option value="si">Sí</option>
+            <option value="no">No</option>
+          </select>
+        </div>
+        <div>
+          <label class="block mb-1 text-sm font-medium text-gray-900">Boletos</label>
+          <input type="number" formControlName="boletos" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5" />
+        </div>
+      </div>
+
+      <div *ngIf="mensajeError" class="p-3 mb-4 text-sm text-red-800 rounded-lg bg-red-100">
+        {{ mensajeError }}
+      </div>
+
+      <div class="flex gap-2">
+        <button type="submit" class="text-white bg-green-600 hover:bg-green-700 font-medium rounded-lg text-sm px-4 py-2">
+          Guardar Cambios
+        </button>
+        <button type="button" (click)="limpiarEdicion()" class="text-gray-700 bg-gray-200 hover:bg-gray-300 font-medium rounded-lg text-sm px-4 py-2">
+          Cancelar
+        </button>
+      </div>
+    </form>
+  </div>
+
+
+  //----------------------------------------------------------------------------------------------------------
+  <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <table class="w-full text-sm text-left text-gray-500">
+      <thead class="text-xs text-gray-700 uppercase bg-gray-100">
+        <tr>
+          <th scope="col" class="px-6 py-3">
+            Nombre
+        </th>
+          <th scope="col" class="px-6 py-3">
+            Compradores
+        </th>
+          <th scope="col" class="px-6 py-3">
+            Boletos
+        </th>
+          <th scope="col" class="px-6 py-3">
+            Tarjeta si/no
+        </th>
+          <th scope="col" class="px-6 py-3">
+            Total
+        </th>
+          <th scope="col" class="px-6 py-3">
+            Modificar
+        </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let venta of ventas; let i = index" 
+        class="bg-white border-b hover:bg-gray-50"
+        >
+
+        <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+            {{ venta.nombre }}
+        </td>
+        <td class="px-6 py-4">
+            {{ venta.compradores }}
+        </td>
+        <td class="px-6 py-4">
+            {{ venta.boletos }}
+        </td>
+        <td class="px-6 py-4 uppercase">
+            {{ venta.tarjetaCine }}
+        </td>
+        <td class="px-6 py-4 font-semibold text-green-700">
+            ${{ venta.valorPagar }}
+        </td>
+
+          <td class="px-6 py-4">
+            <div class="flex gap-2">
+              <button type="button" class="px-3 py-1.5 text-xs font-medium text-white bg-green-600 rounded-lg hover:bg-green-700" (click)="editarVenta(i)">
+                Editar
+              </button>
+              <button type="button" class="px-3 py-1.5 text-xs font-medium text-white bg-red-600 rounded-lg hover:bg-red-700" (click)="eliminarVenta(i)">
+                Eliminar
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="ventas.length === 0" class="p-4 mt-4 text-sm text-gray-800 rounded-lg bg-gray-100" role="alert">
+    <span class="font-medium">Información:</span> 
+    No existen ventas registradas.
+  </div>
+
+</div>

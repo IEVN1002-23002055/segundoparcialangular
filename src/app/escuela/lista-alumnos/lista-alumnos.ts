@@ -45,7 +45,7 @@ export class ListaAlumnos implements OnInit {
 
     if(this.indiceEdicion !== -1){
       this.alumnos[this.indiceEdicion]={
-        ...this.nuevoAlumno //split(...) inserta todas las propiedades del objeto
+        ...this.nuevoAlumno 
       }
     }else{
         this.alumnos.push({...this.nuevoAlumno})
@@ -103,6 +103,12 @@ export class ListaAlumnos implements OnInit {
       correo: '',
       materia: '',
     }
+    this.formulario.patchValue({
+      matricula: this.nuevoAlumno.matricula,
+      nombre: this.nuevoAlumno.nombre,
+      correo: this.nuevoAlumno.correo,
+      materia: this.nuevoAlumno.materia,
+    })
     this.indiceEdicion=-1
   }
 }
