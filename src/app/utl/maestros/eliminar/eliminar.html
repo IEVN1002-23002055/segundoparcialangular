@@ -1,0 +1,60 @@
+<div class="min-h-screen flex justify-center items-center bg-gray-50 p-4">
+  <!-- Tarjeta (Card) -->
+  <div class="bg-white block max-w-sm w-full p-6 border border-gray-200 rounded-lg shadow-md">
+    
+    <div>
+      <img class="rounded-lg w-full h-auto object-cover mb-4" src="/img/user.avif" alt="User" />
+    </div>
+    
+    <div>
+      <h5 class="mt-2 mb-2 text-2xl font-semibold tracking-tight text-gray-900">
+        ID: {{ regMaestro.id }}
+      </h5>
+    </div>
+   
+    <p class="mb-2 text-gray-700">
+        <strong>Nombre:</strong> {{ regMaestro.nombre }}
+    </p>
+    <p class="mb-2 text-gray-700">
+        <strong>Apellidos:</strong> {{ regMaestro.apaterno }} {{ regMaestro.amaterno }}
+    </p>
+    <p class="mb-4 text-gray-700">
+        <strong>Correo:</strong> {{ regMaestro.correo }}
+    </p>
+   
+    <!-- Botón para confirmar la eliminación -->
+    <button
+      type="button"
+      (click)="eliminarMaestro()"
+      class="w-full mb-3 text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center justify-center transition-colors cursor-pointer"
+    >
+      Eliminar Definitivamente
+    </button>
+
+    <!-- Botón Cancelar -->
+    <a
+      routerLink="/utl/maestros"
+      class="w-full inline-flex items-center justify-center text-gray-700 bg-gray-100 border border-gray-300 hover:bg-gray-200 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-4 py-2.5 focus:outline-none transition-colors"
+    >
+      Cancelar
+      <svg
+        class="w-4 h-4 ms-1.5 rtl:rotate-180 -me-0.5"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        fill="none"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M19 12H5m14 0-4 4m4-4-4-4"
+        />
+      </svg>
+    </a>
+
+  </div>
+</div>

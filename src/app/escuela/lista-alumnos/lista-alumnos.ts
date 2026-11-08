@@ -70,7 +70,7 @@ export class ListaAlumnos implements OnInit {
     const datos = localStorage.getItem('alumnos');
 
     if(datos){
-      this.alumnos = JSON.parse(datos); //carga los datos en json
+      this.alumnos = JSON.parse(datos); 
     }
   }
 
@@ -79,7 +79,7 @@ export class ListaAlumnos implements OnInit {
       ...this.alumnos[index]
     }
     const alumno = this.alumnos[index]
-    this.formulario.patchValue({//asignar valores a los formulari
+    this.formulario.patchValue({
       matricula: alumno.matricula,
       nombre: alumno.nombre,
       correo: alumno.correo,
@@ -89,7 +89,7 @@ export class ListaAlumnos implements OnInit {
   }
 
   eliminarAlumnos(index:number): void{
-    this.alumnos.splice(index,1) //recorre o se dezplasa por los elementos de la losta
+    this.alumnos.splice(index,1) 
     localStorage.setItem(
       'alumnos', 
       JSON.stringify(this.alumnos)

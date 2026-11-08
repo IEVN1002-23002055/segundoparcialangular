@@ -1,0 +1,29 @@
+<div class="max-w-6xl mx-auto p-6 bg-white rounded-lg shadow mt-6">
+  <!-- Quitamos el *ngIf estricto para que la tarjeta dibuje siempre -->
+  <div class="max-w-md mx-auto bg-white p-6 border border-gray-200 rounded-lg shadow-sm">
+    <h2 class="text-xl font-bold text-gray-900 mb-4">¿Deseas eliminar este alumno?</h2>
+    
+    <div class="space-y-2 mb-6 text-gray-700">
+      <p><strong>Matrícula:</strong> {{ alumno?.matricula || matricula }}</p>
+      <p><strong>Nombre:</strong> {{ alumno?.nombre || alumno?.Nombre }}</p>
+      <p><strong>Apellidos:</strong> {{ alumno?.apaterno || alumno?.APaterno || '' }} {{ alumno?.amaterno || alumno?.AMaterno || '' }}</p>
+      <p><strong>Correo:</strong> {{ alumno?.correo || alumno?.Correo }}</p>
+    </div>
+
+    <div class="flex items-center space-x-4">
+      <button
+        type="button"
+        (click)="confirmarEliminacion()"
+        class="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+        Eliminar Definitivamente
+      </button>
+
+      <button
+        type="button"
+        class="text-gray-700 bg-gray-100 hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+        [routerLink]="['/utl/alumnos']">
+        Cancelar
+      </button>
+    </div>
+  </div>
+</div>
